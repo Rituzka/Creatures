@@ -52,7 +52,7 @@ class CreatureViewModelTest {
         creatureViewModel.strenght = 3
         creatureViewModel.endurance = 7
         creatureViewModel.drawable = 1
-        creatureViewModel.name = ""
+        creatureViewModel.name.set("")
 
         val canSaveCreature = creatureViewModel.canSaveCreature()
 
@@ -65,7 +65,7 @@ class CreatureViewModelTest {
         creatureViewModel.strenght = 0
         creatureViewModel.endurance = 7
         creatureViewModel.drawable = 1
-        creatureViewModel.name = "My Creature"
+        creatureViewModel.name.set("My Creature")
 
         val canSaveCreature = creatureViewModel.canSaveCreature()
 

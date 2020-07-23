@@ -3,6 +3,7 @@ package com.raywenderlich.android.creaturemon.viewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.databinding.ObservableField
 import com.raywenderlich.android.creaturemon.model.*
 import com.raywenderlich.android.creaturemon.model.room.RoomRepository
 
@@ -11,9 +12,13 @@ class CreatureViewModel(private val creatureGenerator: CreatureGenerator = Creat
 
     private val creatureLiveData = MutableLiveData<Creature>()
 
+    private val saveLiveData = MutableLiveData<Boolean>()
+
     fun getCreatureLiveData(): LiveData<Creature> = creatureLiveData
 
-    var name = ""
+    fun getSaveLiveData(): LiveData<Boolean> = saveLiveData
+
+    var name = ObservableField<String>("")
     var intelligence = 0
     var strenght = 0
     var endurance = 0
@@ -23,7 +28,7 @@ class CreatureViewModel(private val creatureGenerator: CreatureGenerator = Creat
 
     fun updateCreature() {
         val attributes = CreatureAttributes(intelligence, strenght, endurance)
-        creature = creatureGenerator.generateCreature(attributes, name, drawable)
+        creature = creatureGenerator.generateCreature(attributes, name.get() ?: "", drawable)
         creatureLiveData.postValue(creature)
 
     }
@@ -47,18 +52,21 @@ class CreatureViewModel(private val creatureGenerator: CreatureGenerator = Creat
         updateCreature()
     }
 
-    fun saveCreature(): Boolean {
+    fun saveCreature() {
         return if(canSaveCreature()) {
             repository.saveCreature(creature)
-            true
+            saveLiveData.postValue(true)
         }else {
-            false
+            saveLiveData.postValue(false)
         }
     }
 
     fun canSaveCreature(): Boolean {
-        return intelligence != 0 && strenght !=0 && endurance !=0 &&
-                name.isNotEmpty() && drawable != 0
+        val name = this.name.get()
+        name?.let {
+            return intelligence != 0 && strenght != 0 && endurance != 0 &&
+                    name.isNotEmpty() && drawable != 0
+        }
+        return false
     }
-
 }
