@@ -30,7 +30,7 @@
 
 package com.raywenderlich.android.creaturemon.model.room
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.os.AsyncTask
 import com.raywenderlich.android.creaturemon.app.CreaturemonApplication
 import com.raywenderlich.android.creaturemon.model.Creature
@@ -38,11 +38,7 @@ import com.raywenderlich.android.creaturemon.model.CreatureRepository
 
 class RoomRepository : CreatureRepository {
   private val creatureDao: CreatureDao = CreaturemonApplication.database.creatureDao()
-  private val allCreatures : LiveData<List<Creature>>
-
-  init {
-      allCreatures = creatureDao.getAllCreatures()
-  }
+  private val allCreatures : LiveData<List<Creature>> = creatureDao.getAllCreatures()
 
   private class InsertAsyncTask internal constructor(private val dao: CreatureDao) : AsyncTask<Creature, Void, Void>() {
     override fun doInBackground(vararg params: Creature): Void? {

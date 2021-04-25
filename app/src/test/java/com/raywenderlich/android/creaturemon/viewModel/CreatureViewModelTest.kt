@@ -1,6 +1,6 @@
 package com.raywenderlich.android.creaturemon.viewModel
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.raywenderlich.android.creaturemon.model.Creature
 import com.raywenderlich.android.creaturemon.model.CreatureAttributes
 import com.raywenderlich.android.creaturemon.model.CreatureGenerator

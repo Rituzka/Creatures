@@ -30,7 +30,7 @@
 
 package com.raywenderlich.android.creaturemon.model
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 
 interface CreatureRepository {
     fun saveCreature(creature: Creature)

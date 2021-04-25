@@ -30,7 +30,7 @@
 
 package com.raywenderlich.android.creaturemon.view.allcreatures
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.raywenderlich.android.creaturemon.R

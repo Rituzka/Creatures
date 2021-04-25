@@ -30,7 +30,7 @@
 
 package com.raywenderlich.android.creaturemon.model.room
 
-import android.arch.persistence.room.TypeConverter
+import androidx.room.TypeConverter
 import com.raywenderlich.android.creaturemon.model.CreatureAttributes
 import java.util.*
 
@@ -48,9 +48,9 @@ class CreatureAttributesConverter {
     if (value != null) {
       val pieces = value.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
       return CreatureAttributes(
-          java.lang.Integer.parseInt(pieces[0]),
-          java.lang.Integer.parseInt(pieces[1]),
-          java.lang.Integer.parseInt(pieces[2]))
+          Integer.parseInt(pieces[0]),
+          Integer.parseInt(pieces[1]),
+          Integer.parseInt(pieces[2]))
     }
     return null
   }

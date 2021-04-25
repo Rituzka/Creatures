@@ -33,7 +33,7 @@ package com.raywenderlich.android.creaturemon.view.avatars
 import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView

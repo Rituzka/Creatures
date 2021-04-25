@@ -31,8 +31,8 @@
 package com.raywenderlich.android.creaturemon.view.avatars
 
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialogFragment
-import android.support.v7.widget.GridLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View

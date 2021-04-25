@@ -1,6 +1,6 @@
 package com.raywenderlich.android.creaturemon.viewModel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.raywenderlich.android.creaturemon.model.CreatureRepository
 import com.raywenderlich.android.creaturemon.model.room.RoomRepository
 
